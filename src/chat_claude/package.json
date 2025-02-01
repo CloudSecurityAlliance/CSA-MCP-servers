@@ -1,0 +1,25 @@
+{
+  "name": "@cloudsecurityalliance/mcp-chat-claude",
+  "version": "0.1.0",
+  "description": "MCP server for Anthropic Claude integration",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcp-server-claude": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.0.1",
+    "@anthropic-ai/sdk": "^0.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5.3.3"
+  }
+}
