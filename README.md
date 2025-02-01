@@ -1,2 +1,4 @@
-# CSA-MCP-servers
-Cloud Security Alliance Model Context Protocol Servers
+# Cloud Security Alliance Model Context Protocl Servers
+
+TODO: write docs. 
+
