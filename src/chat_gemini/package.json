@@ -1,0 +1,25 @@
+{
+  "name": "@cloudsecurityalliance/mcp-chat-gemini",
+  "version": "0.1.0",
+  "description": "MCP server for Google Gemini integration",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcp-chat-gemini": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.0.1",
+    "@google/generative-ai": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5.3.3"
+  }
+}
