@@ -1,0 +1,32 @@
+{
+  "name": "nodemailer-kurtseifried",
+  "version": "1.0.0",
+  "description": "MCP server for sending emails using nodemailer",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "nodemailer-kurtseifried": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "test": "jest",
+    "start": "node build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.3",
+    "nodemailer": "^6.9.8",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "@types/nodemailer": "^6.4.14",
+    "glob": "^10.3.10",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "overrides": {
+    "glob": "^10.3.10"
+  }
+}
