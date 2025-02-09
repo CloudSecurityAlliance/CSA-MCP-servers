@@ -45,8 +45,8 @@ class EmailServer {
       version: "1.0.0",
     }, {
       capabilities: {
-        tools: {},
-      },
+        tools: {}
+      }
     });
 
     this.setupHandlers();
@@ -143,6 +143,7 @@ class EmailServer {
   async start() {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
+    console.error("Nodemailer MCP Server running on stdio");
   }
 }
 

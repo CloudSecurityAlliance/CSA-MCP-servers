@@ -73,11 +73,11 @@ async function testContainer() {
       const listToolsRequest = {
         jsonrpc: '2.0',
         id: 2,
-        method: 'ListTools',
+        method: 'tool.list',
         params: {}
       };
 
-      console.log('\nSending ListTools request:');
+      console.log('\nSending tool.list request:');
       console.log(JSON.stringify(listToolsRequest, null, 2));
       container.stdin.write(JSON.stringify(listToolsRequest) + '\n');
     }, 4000);
@@ -87,7 +87,7 @@ async function testContainer() {
       const sendEmailRequest = {
         jsonrpc: '2.0',
         id: 3,
-        method: 'CallTool',
+        method: 'tool.call',
         params: {
           name: 'send_email',
           arguments: {
@@ -98,7 +98,7 @@ async function testContainer() {
         }
       };
 
-      console.log('\nSending CallTool request:');
+      console.log('\nSending tool.call request:');
       console.log(JSON.stringify(sendEmailRequest, null, 2));
       container.stdin.write(JSON.stringify(sendEmailRequest) + '\n');
     }, 6000);

@@ -93,7 +93,7 @@ describe('EmailServer', () => {
     process.env.EMAIL_FROM = 'test@example.com';
     process.env.EMAIL_USERNAME = 'test@example.com';
     process.env.EMAIL_PASSWORD = 'password123';
-    process.env.EMAIL_ALLOW_LIST = JSON.stringify(['example.com', '@trusted.com', 'specific@example.com']);
+    process.env.EMAIL_ALLOW_LIST = 'example.com,@trusted.com,specific@example.com';
 
     // Create the mock with explicit typing
     const sendMailMock = jest.fn();
