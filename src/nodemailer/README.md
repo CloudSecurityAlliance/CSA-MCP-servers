@@ -20,6 +20,10 @@ npm install nodemailer-kurtseifried
 
 ## Configuration
 
+You can run the server either as a local NPM package or as a Docker container.
+
+### NPM Package Configuration
+
 Configure the server in your Claude Desktop configuration file (`claude_desktop_config.json`):
 
 ```json
@@ -32,7 +36,31 @@ Configure the server in your Claude Desktop configuration file (`claude_desktop_
         "EMAIL_FROM": "your-email@gmail.com",
         "EMAIL_USERNAME": "your-email@gmail.com",
         "EMAIL_PASSWORD": "your-app-specific-password",
-        "EMAIL_ALLOW_LIST": "[\"example.com\", \"@trusted.com\", \"specific@example.org\"]"
+        "EMAIL_ALLOW_LIST": "example.com,@trusted.com,specific@example.org"
+      }
+    }
+  }
+}
+```
+
+### Docker Container Configuration
+
+To use the Docker container version, configure your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "nodemailer": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i",
+        "cloudsecurityallianceorg/mcp-nodemailer"
+      ],
+      "env": {
+        "EMAIL_SERVICE": "gmail",
+        "EMAIL_FROM": "your-email@gmail.com",
+        "EMAIL_USERNAME": "your-email@gmail.com",
+        "EMAIL_PASSWORD": "your-app-specific-password",
+        "EMAIL_ALLOW_LIST": "example.com,@trusted.com,specific@example.org"
       }
     }
   }
@@ -48,24 +76,22 @@ Configure the server in your Claude Desktop configuration file (`claude_desktop_
 
 ### Optional Environment Variables
 
-- `EMAIL_ALLOW_LIST`: JSON array of allowed email patterns
-- `EMAIL_BLOCK_LIST`: JSON array of blocked email patterns
+- `EMAIL_ALLOW_LIST`: Comma-separated list of allowed email patterns
+- `EMAIL_BLOCK_LIST`: Comma-separated list of blocked email patterns
 
 Note: You can only use either `EMAIL_ALLOW_LIST` or `EMAIL_BLOCK_LIST`, not both simultaneously.
 
 ### Email Pattern Formats
 
-The allow_list and block_list support three types of patterns:
+The allow_list and block_list support three types of patterns, which are specified as comma-separated values:
 
-1. Exact email matches: `"user@example.com"` - Matches only this specific email
-2. Domain matches: `"@example.com"` - Matches any email at example.com
-3. Wildcard domain matches: `"example.com"` - Matches example.com and all subdomains
+1. Exact email matches: `user@example.com` - Matches only this specific email
+2. Domain matches: `@example.com` - Matches any email at example.com
+3. Wildcard domain matches: `example.com` - Matches example.com and all subdomains
 
-Examples:
-```json
-{
-  "EMAIL_ALLOW_LIST": "[\"@company.com\", \"partner@external.com\", \"trusted-domain.com\"]"
-}
+Example:
+```
+EMAIL_ALLOW_LIST="@company.com,partner@external.com,trusted-domain.com"
 ```
 
 This would allow:
